@@ -11,5 +11,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
+heading = "Contact Us"
+quote ="Every good Coversations starts with good listening."
 
 }
