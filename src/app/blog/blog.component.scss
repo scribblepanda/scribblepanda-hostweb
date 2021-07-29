@@ -1,0 +1,49 @@
+.post {
+  margin: 20px 0;
+}
+
+.post-info {
+  padding: 40px;
+  background: #fcfcfc;
+  transition: all 0.2s ease;
+}
+.post:hover .post-img img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.post .post-img {
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  max-height: 300px;
+}
+.post .post-img img {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.post-info h3 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+.post-info h6 {
+  // color: #49a432;
+  font-size: 12px;
+}
+
+.post-info a {
+  //   color: #fff;
+}
+
+.post-info a:hover {
+  color: #367725;
+}
+
+.post-info p {
+  margin-top: 20px;
+  //   color: #fff;
+}

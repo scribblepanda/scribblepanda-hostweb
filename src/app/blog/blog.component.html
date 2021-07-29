@@ -1,1 +1,30 @@
-<p style="padding: 100px;">blog works!</p>
+<app-page-header [heading]="heading" [quote]="quote"></app-page-header>
+
+<section class="pt-100 pb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of items; index as i">
+        <div class="post">
+          <div class="post-img">
+            <img class="img-responsive" src="//unsplash.it/1200/700" alt="" />
+          </div>
+          <div class="post-info">
+            <h3>
+              <a routerLink="/blog-details">It's Like Dating Entertainment</a>
+            </h3>
+            <h6>April 28, 2017</h6>
+            <p>
+              Curabitur quis faucibus odio, nec accumsan erat. Duis id ante
+              convallis magna mattis pulvinar eu ut ipsum. Donec at leo id
+              tortor mattis tempus...
+            </p>
+            <a class="readmore dark-color" href="#"><span>Read More</span></a>
+          </div>
+        </div>
+      </div>
+      <!--=== Post End ===-->
+
+      <!--=== Post End ===-->
+    </div>
+  </div>
+</section>
