@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "scribblepanda-ce168"
+  },
+  "targets": {
+    "scribblepanda-ce168": {
+      "hosting": {
+        "scribble": [
+          "scribblepanda-ce168"
+        ]
+      }
+    }
   }
 }

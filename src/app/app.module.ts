@@ -10,6 +10,9 @@ import { BlogComponent } from "./blog/blog.component";
 import { ContactComponent } from "./contact/contact.component";
 import { BlogDetailsComponent } from "./blog-details/blog-details.component";
 import { PageHeaderComponent } from "./layouts/page-header/page-header.component";
+import { environment } from "src/environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { PageHeaderComponent } from "./layouts/page-header/page-header.component
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
       { path: "clients", component: ClientsComponent },
