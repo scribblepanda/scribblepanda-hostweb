@@ -8,6 +8,7 @@ import { ServicesComponent } from './services/services.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
+import { BlogDetailsComponent } from './blog-details/blog-details.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ContactComponent } from './contact/contact.component';
     ServicesComponent,
     AboutusComponent,
     BlogComponent,
-    ContactComponent,  ],
+    ContactComponent,
+    BlogDetailsComponent,  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
