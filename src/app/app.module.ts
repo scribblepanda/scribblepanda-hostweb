@@ -30,7 +30,7 @@ import { PageHeaderComponent } from "./layouts/page-header/page-header.component
       { path: "clients", component: ClientsComponent },
       { path: "services", component: ServicesComponent },
       { path: "about", component: AboutusComponent },
-      { path: "blogs", component: BlogComponent },
+      { path: "blog", component: BlogComponent },
       { path: "blog-details", component: BlogDetailsComponent },
       { path: "contact", component: ContactComponent },
       { path: "", redirectTo: "", pathMatch: "full" },
