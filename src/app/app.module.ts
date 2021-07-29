@@ -9,6 +9,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { BlogDetailsComponent } from './blog-details/blog-details.component';
+import { PageHeaderComponent } from './layouts/page-header/page-header.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { BlogDetailsComponent } from './blog-details/blog-details.component';
     AboutusComponent,
     BlogComponent,
     ContactComponent,
-    BlogDetailsComponent,  ],
+    BlogDetailsComponent,
+    PageHeaderComponent,  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([

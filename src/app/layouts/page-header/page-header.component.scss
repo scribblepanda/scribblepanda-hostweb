@@ -1,0 +1,348 @@
+.breadcrumb-area {
+  background-color: #f4f7fa;
+  overflow: hidden;
+  padding: 148px 0 153px;
+}
+.breadcrumb-area .section-internal-header {
+  position: relative;
+  z-index: 5;
+}
+.breadcrumb-area .breadcrumb-content .page-title h1 {
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 95px;
+}
+.breadcrumb-area .breadcrumb-content .page-title {
+  margin-bottom: 15px;
+}
+.breadcrumb-area .breadcrumb-content .page-breadcrumb .breadcrumb {
+  background-color: transparent;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.breadcrumb-area .breadcrumb-content .page-breadcrumb ul li {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.breadcrumb-area .breadcrumb-content .page-breadcrumb ul li:last-child:after {
+  display: none;
+}
+.breadcrumb-area .breadcrumb-content .page-breadcrumb ul li.active {
+  color: #161c2d;
+}
+.section-particle-effect {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 250px;
+}
+.section-particle-effect .particle-1 {
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+.section-particle-effect .particle-2 {
+  position: absolute;
+  right: 70px;
+  top: 20px;
+}
+.section-particle-effect .particle-3 {
+  position: absolute;
+  right: 20px;
+  top: -60px;
+}
+.section-particle-effect .particle-4 {
+  position: absolute;
+  top: 28%;
+  left: 100px;
+}
+.section-particle-effect .particle-5 {
+  top: 30%;
+  right: 100px;
+  position: absolute;
+}
+.section-particle-effect .particle-6 {
+  position: absolute;
+  position: absolute;
+  bottom: 44px;
+  right: -44px;
+  max-width: 180px;
+  max-width: 180px;
+}
+.section-particle-effect.section-particle-effect-v3 .particle-1 {
+  top: -225px;
+  left: -88px;
+}
+.section-particle-effect.section-particle-effect-v3 .particle-2 {
+  right: -25px;
+  top: -135px;
+}
+.section-particle-effect.section-particle-effect-v3 .particle-3 {
+  right: 142px;
+  top: -65px;
+}
+.section-particle-effect.section-particle-effect-v3 .particle-4 {
+  top: auto;
+  left: -10px;
+}
+.section-particle-effect.section-particle-effect-v3 .particle-5 {
+  top: auto;
+  bottom: 0;
+  right: -90px;
+}
+.animate-zoom-fade {
+  animation-name: zoom-fade;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  -webkit-animation-name: zoom-fade;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  -moz-animation-name: zoom-fade;
+  -moz-animation-duration: 5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+
+  -ms-animation-name: zoom-fade;
+  -ms-animation-duration: 5s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+
+  -o-animation-name: zoom-fade;
+  -o-animation-duration: 5s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+@-webkit-keyframes zoom-fade {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes zoom-fade {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+.animate-float-bob {
+  animation-name: float-bob;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  -webkit-animation-name: float-bob;
+  -webkit-animation-duration: 7s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  -moz-animation-name: float-bob;
+  -moz-animation-duration: 7s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+
+  -ms-animation-name: float-bob;
+  -ms-animation-duration: 7s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+
+  -o-animation-name: float-bob;
+  -o-animation-duration: 7s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+@-webkit-keyframes float-bob {
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+
+  50% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+}
+@keyframes float-bob {
+  0% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+
+  50% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+}
+.animate-float-bob-x {
+  -webkit-animation-name: float-bob-x;
+  animation-name: float-bob-x;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+@-webkit-keyframes float-bob-x {
+  0% {
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  50% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+@keyframes float-bob-x {
+  0% {
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+
+  50% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+  }
+}
+.animate-float-bob-y {
+  -webkit-animation-name: float-bob-y;
+  animation-name: float-bob-y;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+@-webkit-keyframes float-bob-y {
+  0% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+@keyframes float-bob-y {
+  0% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+.animate-rotate-me {
+  animation-name: rotateme;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  -webkit-animation-name: rotateme;
+  -webkit-animation-duration: 24s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  -moz-animation-name: rotateme;
+  -moz-animation-duration: 24s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+
+  -ms-animation-name: rotateme;
+  -ms-animation-duration: 24s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+
+  -o-animation-name: rotateme;
+  -o-animation-duration: 24s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+@-webkit-keyframes rotateme {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateme {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .breadcrumb-area .breadcrumb-content .page-title h1 {
+    font-size: 45px;
+  }
+}
