@@ -13,6 +13,7 @@ import { PageHeaderComponent } from "./layouts/page-header/page-header.component
 import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AdminComponent } from "./admin/admin.component";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
     ContactComponent,
     BlogDetailsComponent,
     PageHeaderComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +38,9 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
       { path: "services", component: ServicesComponent },
       { path: "about", component: AboutusComponent },
       { path: "blog", component: BlogComponent },
-      { path: "blog-details", component: BlogDetailsComponent },
+      { path: "blog-details/:id", component: BlogDetailsComponent },
       { path: "contact", component: ContactComponent },
+      { path: "thisisit/admin", component: AdminComponent },
       { path: "", redirectTo: "", pathMatch: "full" },
       { path: "**", component: HomeComponent },
     ]),

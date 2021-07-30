@@ -1,19 +1,21 @@
 <section
   class="breadcrumb_area_three"
   id="paralx"
-  style="background-image: url(//unsplash.it/1200)"
+  style="
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/scribblepanda-ce168.appspot.com/o/CR-Electronics-AH-Cloud-Bank-12-15.jpg?alt=media&token=cc902f75-9642-4970-ba09-0daff19ba4b0);
+  "
 >
   <div class="container">
     <div class="breadcrumb_content">
-      <h1>How to create Google account with WordPress</h1>
+      <h1>{{ blogg.title }}</h1>
       <div class="single_post_author">
         <img class="author_img" src="../../assets/images/client1.jpg" alt="" />
         <div class="text">
           <a href="#">
-            <h4>Jason Response</h4>
+            <h4>{{ blogg.author }}</h4>
           </a>
           <div class="post_tag">
-            <a href="#">April 16, 2020</a>
+            <a href="#">{{ blogg.date }}</a>
           </div>
         </div>
       </div>
@@ -21,7 +23,9 @@
   </div>
 </section>
 <section class="post-content">
-  <div class="container py-5" *ngFor="let item of item$ | async">
-    <div innerHtml="{{ item.content }}"></div>
+  <div class="container py-5">
+    <div>
+      <div [innerHtml]="blogg.content"></div>
+    </div>
   </div>
 </section>

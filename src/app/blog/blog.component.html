@@ -10,7 +10,9 @@
           </div>
           <div class="post-info">
             <h3>
-              <a routerLink="/blog-details"> {{ item.title }}</a>
+              <a [routerLink]="'/blog-details/' + item.eventId">
+                {{ item.title }}</a
+              >
             </h3>
             <h6>{{ item.date }}</h6>
             <p>
