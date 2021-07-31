@@ -6,7 +6,7 @@
       <div class="col-md-4" *ngFor="let item of item$ | async">
         <div class="post">
           <div class="post-img">
-            <img class="img-responsive" src="//unsplash.it/1200/700" alt="" />
+            <img class="img-responsive" [src]="item.cover" alt="" />
           </div>
           <div class="post-info">
             <h3>
