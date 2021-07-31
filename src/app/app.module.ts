@@ -15,6 +15,7 @@ import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AdminComponent } from "./admin/admin.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -34,14 +35,30 @@ import { AdminComponent } from "./admin/admin.component";
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
-      { path: "clients", component: ClientsComponent },
-      { path: "services", component: ServicesComponent },
-      { path: "about", component: AboutusComponent },
+      {
+        path: "clients",
+        component: ClientsComponent,
+      },
+      {
+        path: "services",
+        component: ServicesComponent,
+      },
+      {
+        path: "about",
+        component: AboutusComponent,
+      },
       { path: "blog", component: BlogComponent },
-      { path: "blog-details/:id", component: BlogDetailsComponent },
-      { path: "contact", component: ContactComponent },
+      {
+        path: "blog-details/:id",
+        component: BlogDetailsComponent,
+      },
+      {
+        path: "contact",
+        component: ContactComponent,
+      },
       { path: "thisisit/admin", component: AdminComponent },
       { path: "", redirectTo: "", pathMatch: "full" },
       { path: "**", component: HomeComponent },
