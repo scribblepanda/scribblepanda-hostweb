@@ -10,63 +10,66 @@
         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
           <input
             type="text"
-            name="name"
             placeholder="Title"
-            data-form-field="name"
+            [(ngModel)]="post.title"
             class="form-control display-7"
-            value=""
-            id="name-form2-3b"
+            id="title"
+            required
           />
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 form-group">
           <input
             type="date"
-            name="name"
+            [(ngModel)]="post.date"
             placeholder="Name"
             data-form-field="name"
             class="form-control display-7"
-            value=""
-            id="name-form2-3b"
+            id="date"
+            required
           />
         </div>
-        <div data-for="email" class="col-lg-6 col-md-6 col-sm-12 form-group">
+        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
           <input
             type="text"
-            name="email"
             placeholder="Author Name"
-            data-form-field="email"
+            [(ngModel)]="post.author"
             class="form-control display-7"
-            value=""
-            id="email-form2-3b"
+            id="author"
+            required
           />
         </div>
+        <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
         <div class="col-lg-3 col-md-3 col-sm-12 form-group">
           <label class="file">
-            <input type="file" id="file" aria-label="File browser example" />
+            <input
+              type="file"
+              id="file"
+              #userPhoto
+              (change)="uploadFile($event)"
+              name="image"
+              autocomplete="off"
+              aria-label="File browser example"
+            />
             <span class="file-custom"></span>
           </label>
         </div>
-        <div data-for="email" class="col-lg-9 col-md-9 col-sm-12 form-group">
+        <div class="col-lg-9 col-md-9 col-sm-12 form-group">
           <input
             type="text"
-            name="email"
             placeholder="cover image Url"
-            data-form-field="email"
+            [(ngModel)]="post.cover"
             class="form-control display-7"
-            value=""
-            id="email-form2-3b"
+            id="cover"
           />
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
           <input
             type="text"
-            name="name"
             placeholder="Summary"
+            [(ngModel)]="post.summary"
             maxlength="150"
-            data-form-field="name"
             class="form-control display-7"
-            value=""
-            id="name-form2-3b"
+            id="summary"
           />
         </div>
         <div
@@ -76,17 +79,16 @@
           <textarea
             rows="4"
             name="textarea"
-            [(ngModel)]="content"
+            [(ngModel)]="post.content"
             placeholder="Post Content in HTML format"
-            data-form-field="textarea"
             class="form-control display-7"
-            id="textarea-form2-3b"
+            id="content"
           ></textarea>
 
           <span class="remaning">{{ content.length }}</span>
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary display-7">SEND</button>
+          <button type="submit" class="btn btn-primary display-7">Post</button>
         </div>
       </div>
     </div>
