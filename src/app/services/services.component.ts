@@ -11,5 +11,5 @@ export class ServicesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  heading="Our Services"
 }

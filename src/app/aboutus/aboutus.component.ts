@@ -10,6 +10,6 @@ export class AboutusComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
+  }heading = "About Us"
+  // quote ="Every good Coversations starts with good listening."
 }

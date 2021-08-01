@@ -11,5 +11,6 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  heading = "Clients"
+  // quote ="Every good Coversations starts with good listening."
 }
