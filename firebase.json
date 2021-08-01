@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "target": "scribble",
       "public": "dist",
       "ignore": [
         "firebase.json",
