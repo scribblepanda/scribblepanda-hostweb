@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from "firebase/app";
-require("firebase/auth");
+// require("firebase/auth");
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
@@ -48,8 +48,8 @@ export class AdminComponent implements OnInit {
         console.log("  Name: " + current.displayName);
         console.log("  Email: " + current.email);
         console.log("  Photo URL: " + current.photoURL);
-        this.post.author = current.displayName;
-        this.post.authorPhoto = current.photoURL;
+        // this.post.author = current.displayName;
+        // this.post.authorPhoto = current.photoURL;
       });
     }
   }
