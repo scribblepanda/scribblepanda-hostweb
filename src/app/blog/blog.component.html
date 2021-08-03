@@ -6,7 +6,7 @@
       <div class="col-md-4" *ngFor="let item of item$ | async">
         <div class="post">
           <div class="post-img">
-            <img class="img-responsive" [src]="item.cover" alt="" />
+            <img class="img-responsive img-fluid" [src]="item.cover" alt="" />
           </div>
           <div class="post-info">
             <h3>
@@ -18,7 +18,11 @@
             <p>
               {{ item.summary }}
             </p>
-            <a class="readmore dark-color" href="#"><span>Read More</span></a>
+            <a
+              class="readmore dark-color"
+              [routerLink]="'/blog-details/' + item.eventId"
+              ><span>Read More</span></a
+            >
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from "firebase/app";
+require("firebase/auth");
 import { AngularFireStorage } from "@angular/fire/storage";
-import { finalize } from "rxjs/operators";
+import { finalize, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
 
@@ -14,8 +15,10 @@ import { AngularFirestore } from "@angular/fire/firestore";
 export class AdminComponent implements OnInit {
   error: any;
   content = "";
+  uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   success = false;
+  //profile: any;
 
   constructor(
     public auth: AngularFireAuth,
@@ -27,14 +30,36 @@ export class AdminComponent implements OnInit {
     const filePath = Date.now().toString();
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
+    this.uploadPercent = task.percentageChanges();
+    // get notified when the download URL is available
+    console.log(this.uploadPercent);
     task
       .snapshotChanges()
       .pipe(finalize(() => (this.downloadURL = fileRef.getDownloadURL())))
       .subscribe();
   }
+  authorDetails() {
+    const user = firebase.auth().currentUser;
 
+    if (user !== null) {
+      user.providerData.forEach((current) => {
+        console.log("Sign-in provider: " + current.providerId);
+        console.log("  Provider-specific UID: " + current.uid);
+        console.log("  Name: " + current.displayName);
+        console.log("  Email: " + current.email);
+        console.log("  Photo URL: " + current.photoURL);
+        this.post.author = current.displayName;
+        this.post.authorPhoto = current.photoURL;
+      });
+    }
+  }
   login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    this.auth
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((result: any) => {
+        // const profile = result.user;
+        //console.log(this.profile.displayName);
+      });
   }
   logout() {
     this.auth.signOut();
@@ -43,6 +68,8 @@ export class AdminComponent implements OnInit {
   post: Object = {
     content: "",
     author: "Scribble Panda",
+    date: new Date().toDateString(),
+    authorPhoto: "",
   };
 
   postBlog() {
@@ -51,6 +78,7 @@ export class AdminComponent implements OnInit {
       .add(this.post)
       .then((res) => {
         this.success = true;
+        window.scrollTo(0, 0);
       });
   }
   ngOnInit(): void {}
