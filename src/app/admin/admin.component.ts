@@ -69,7 +69,8 @@ export class AdminComponent implements OnInit {
     content: "",
     author: "Scribble Panda",
     date: new Date().toDateString(),
-    authorPhoto: "",
+    authorPhoto:
+      "https://firebasestorage.googleapis.com/v0/b/scribblepanda-ce168.appspot.com/o/panda-user.jpg?alt=media&token=bad662c8-dc0d-4d85-a51f-ff4b9769967b",
   };
 
   postBlog() {

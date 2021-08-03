@@ -7,7 +7,7 @@
     <div class="breadcrumb_content">
       <h1>{{ blogg.title }}</h1>
       <div class="single_post_author">
-        <img class="author_img" src="../../assets/images/client1.jpg" alt="" />
+        <img class="author_img" [src]="blogg.authorPhoto" alt="" />
         <div class="text">
           <a href="#">
             <h4>{{ blogg.author }}</h4>
