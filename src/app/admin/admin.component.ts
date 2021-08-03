@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from "firebase/app";
-require("firebase/auth");
+import("firebase/auth");
 import { AngularFireStorage } from "@angular/fire/storage";
-import { finalize } from "rxjs/operators";
+import { finalize, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
 
@@ -18,6 +18,13 @@ export class AdminComponent implements OnInit {
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   success = false;
+  post: Object = {
+    content: "",
+    author: "Scribble Panda",
+    date: new Date().toDateString(),
+    authorPhoto: "../../assets/images/panda-user.jpg",
+    timestamp: Date.now(),
+  };
   //profile: any;
 
   constructor(
@@ -50,6 +57,7 @@ export class AdminComponent implements OnInit {
         console.log("  Photo URL: " + current.photoURL);
         this.post.author = current.displayName;
         this.post.authorPhoto = current.photoURL;
+        console.log(this.post);
       });
     }
   }
@@ -65,12 +73,6 @@ export class AdminComponent implements OnInit {
     this.auth.signOut();
   }
   quote = "You are the hero! make some awesome content";
-  post: Object = {
-    content: "",
-    author: "Scribble Panda",
-    date: new Date().toDateString(),
-    authorPhoto: "../../assets/images/panda-user.jpg",
-  };
 
   postBlog() {
     this.firestore

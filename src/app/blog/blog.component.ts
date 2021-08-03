@@ -11,7 +11,7 @@ export class BlogComponent implements OnInit {
   item$: Observable<any[]>;
   constructor(firestore: AngularFirestore) {
     this.item$ = firestore
-      .collection("post")
+      .collection("post", (ref) => ref.orderBy("timestamp"))
       .valueChanges({ idField: "eventId" });
   }
   quote = "Blogging is a conversation, not a code.";
