@@ -3,7 +3,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from "firebase/app";
 require("firebase/auth");
 import { AngularFireStorage } from "@angular/fire/storage";
-import { finalize, retry } from "rxjs/operators";
+import { finalize } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
 
@@ -69,8 +69,7 @@ export class AdminComponent implements OnInit {
     content: "",
     author: "Scribble Panda",
     date: new Date().toDateString(),
-    authorPhoto:
-      "https://firebasestorage.googleapis.com/v0/b/scribblepanda-ce168.appspot.com/o/panda-user.jpg?alt=media&token=bad662c8-dc0d-4d85-a51f-ff4b9769967b",
+    authorPhoto: "../../assets/images/panda-user.jpg",
   };
 
   postBlog() {
