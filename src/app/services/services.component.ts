@@ -11,5 +11,6 @@ export class ServicesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  heading="Our Services"
+  heading = "Our Services";
+  quote = "People will forget what you said. They will forget what you did. But they will never forget how you made them feel.";
 }
