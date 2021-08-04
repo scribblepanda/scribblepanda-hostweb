@@ -16,7 +16,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AdminComponent } from "./admin/admin.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +36,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent },
       {

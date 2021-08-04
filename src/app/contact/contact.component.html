@@ -7,47 +7,44 @@
                 <h2 class="h_title wow fadeInUp">Let’s start the conversation</h2>
                 <p>Please email us, we’ll happy to assist you.</p>
             </div>
-            <form action="#" method="POST" class="contact_form mbr-form form-with-styler" data-form-title="Form Name">
-                <input type="hidden" name="email" data-form-email="true"
-                    value="rZSEQQn2cxIZriQ7g1eR2vf2NnM1rFTAP+TfKC+Gk1efUdS0nWbzGgLjuZdD8hCdXU4Drb1upI4PerhDL9HtNEyXqe4hTVSPhd817yWMyl08w/odNpB3k+5hr1zP9REo.3/IiFIEEbz+c+r0T/j8C2LmS5ukCj4Q72jpgSt+GwSHnRqKVSaXhNJ4X2GBVrXGWSRIoefEq/XertD46UEHaSQH47SI6qUuDq8JVoITe4xPnoRn1TPwCi9g/uyqOyXsC">
-                
+            <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)"  class="contact_form mbr-form form-with-styler"> 
                 <div class="form-group">
                     <h6>What type of project you need?</h6>
                     <div class="box_info">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Checkone">
-                            <label class="form-check-label" for="Checkone">
+                            <input class="form-check-input" type="radio" id="sradio1" value="Web Design" name="service" ngModel>
+                            <label class="form-check-label" for="sradio1">
                                 Web Design
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Checktwo">
-                            <label class="form-check-label" for="Checktwo">
-                                Dashboard
+                            <input class="form-check-input" type="radio" id="sradio2" value="Web Development" name="service" ngModel>
+                            <label class="form-check-label" for="sradio2">
+                                Web Development
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Checkthree">
-                            <label class="form-check-label" for="Checkthree">
+                            <input class="form-check-input" type="radio" id="sradio3" value="Mobile App" name="service" ngModel>
+                            <label class="form-check-label" for="sradio3">
                                 Mobile App
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Checkfour">
-                            <label class="form-check-label" for="Checkfour">
-                                Mockup
+                            <input class="form-check-input" type="radio" id="sradio4" value="UX Solutions" name="service" ngModel>
+                            <label class="form-check-label" for="sradio4">
+                                UX Solutions
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Checkfive">
-                            <label class="form-check-label" for="Checkfive">
-                                Desktop App
+                            <input class="form-check-input" type="radio" id="sradio5" value="Digital Marketing" name="service" ngModel>
+                            <label class="form-check-label" for="sradio5">
+                                Digital Marketing
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="Checksix">
-                            <label class="form-check-label" for="Checksix">
-                                Ui kit
+                            <input class="form-check-input" type="radio" id="sradio6" value="Others" name="service" ngModel>
+                            <label class="form-check-label" for="sradio6">
+                                Others
                             </label>
                         </div>
                     </div>
@@ -56,38 +53,38 @@
                     <h6>Budget Range</h6>
                     <div class="box_info">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="budgetOne"
-                                value="option1" checked="">
+                            <input class="form-check-input" type="radio" name="budgetRange" id="budgetOne"
+                                value="Less than 10k"  ngModel>
                             <label class="form-check-label" for="budgetOne">
-                                $1k
+                                Less than 10k
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="budgetTwo"
-                                value="option2" checked="">
+                            <input class="form-check-input" type="radio" name="budgetRange" id="budgetTwo"
+                                value="10k-25k"  ngModel>
                             <label class="form-check-label" for="budgetTwo">
-                                $2k
+                                10k-25k
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="budgetThree"
-                                value="option3" checked="">
+                            <input class="form-check-input" type="radio" name="budgetRange" id="budgetThree"
+                                value="25k-50k"  ngModel>
                             <label class="form-check-label" for="budgetThree">
-                                $2k to $3k
+                                25k-50k
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="budgetFour"
-                                value="option4" checked="">
+                            <input class="form-check-input" type="radio" name="budgetRange" id="budgetFour"
+                                value="50k-100k"  ngModel>
                             <label class="form-check-label" for="budgetFour">
-                                $4k to 5k
+                                50k-100k
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="budgetFive"
-                                value="option5" checked="">
+                            <input class="form-check-input" type="radio" name="budgetRange" id="budgetFive"
+                                value="More then 100k"  ngModel>
                             <label class="form-check-label" for="budgetFive">
-                                More then $6k
+                                More then 100k
                             </label>
                         </div>
                     </div>
@@ -96,38 +93,38 @@
                     <h6>Deadline</h6>
                     <div class="box_info">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Radios" id="weekOne" value="1"
-                                checked="">
+                            <input class="form-check-input" type="radio" name="deadline" id="weekOne" value="At the earliest"
+                                >
                             <label class="form-check-label" for="weekOne">
-                                1 week
+                                At the earliest
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Radios" id="weekTwo" value="2"
-                                checked="">
+                            <input class="form-check-input" type="radio" name="deadline" id="weekTwo" value="1 month"
+                                >
                             <label class="form-check-label" for="weekTwo">
-                                2 week
+                                1 month
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Radios" id="weekThree" value="3"
-                                checked="">
+                            <input class="form-check-input" type="radio" name="deadline" id="weekThree" value="2-3 months"
+                                >
                             <label class="form-check-label" for="weekThree">
-                                3 week
+                                2-3 months
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Radios" id="weekFour" value="4"
-                                checked="">
+                            <input class="form-check-input" type="radio" name="deadline" id="weekFour" value="3-4 months"
+                                >
                             <label class="form-check-label" for="weekFour">
-                                4 week
+                                3-4 months
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="Radios" id="weekFive" value="5"
-                                checked="">
+                            <input class="form-check-input" type="radio" name="deadline" id="weekFive" value="Development + Maintanence"
+                                >
                             <label class="form-check-label" for="weekFive">
-                                5 week
+                                Development + Maintanence
                             </label>
                         </div>
                     </div>
@@ -139,18 +136,18 @@
                     <div class="form-row">
                         
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control display-7"
+                            <input type="text" name="name" placeholder="Name" ngModel class="form-control display-7"
                                 value="" id="name-form2-3b">
                         </div>
                         <div data-for="email" class="col-lg-12 col-md-12 col-sm-12 form-group">
-                            <input type="email" name="email" placeholder="E-mail" data-form-field="email"
+                            <input type="email" name="email" placeholder="E-mail" ngModel
                                 class="form-control display-7" value="" id="email-form2-3b">
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 form-group" data-for="textarea">
-                            <textarea rows="4" name="textarea" placeholder="Message" data-form-field="textarea"
+                            <textarea rows="4" name="textarea" placeholder="Message" ngModel
                                 class="form-control display-7" id="textarea-form2-3b"></textarea>
                         </div>
-                        <div class="col-auto"><button type="submit" class="btn btn-primary display-7">SEND</button></div>
+                        <div class="col-auto"><button type = "submit" value = "Send" class="btn btn-primary display-7">SEND</button></div>
                     </div>
                 
                 <!--Formbuilder Form-->
