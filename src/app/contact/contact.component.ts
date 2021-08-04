@@ -7,10 +7,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  formsubmitted: boolean;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.formsubmitted = false;
   }
 heading = "Contact Us"
 quote ="Every good Coversations starts with good listening."
@@ -21,18 +23,26 @@ onSubmit(form: NgForm) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.http.post('https://formspree.io/f/xknkqpnj',
       { 
-      budgetRange: formValue.budgetRange,
-      email: formValue.email,
       name: formValue.name,
+      email: formValue.email,
+      phone: formValue.phone,
       service: formValue.service,
+      budgetRange: formValue.budgetRange,
       textarea: formValue.textarea 
     },
       { 'headers': headers }).subscribe(
         response => {
           console.log(response);
-          alert("Your Enquiry submitted successfully");
+          this.formsubmitted = true;
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
         }
       );
+      form.resetForm();
   }
 }
+
+  bringForm() {
+    this.formsubmitted = false;
+  }
 }
