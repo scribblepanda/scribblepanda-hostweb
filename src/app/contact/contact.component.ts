@@ -30,6 +30,7 @@ onSubmit(form: NgForm) {
       { 'headers': headers }).subscribe(
         response => {
           console.log(response);
+          alert("Your Enquiry submitted successfully");
         }
       );
   }
