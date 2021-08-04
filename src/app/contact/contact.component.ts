@@ -12,6 +12,8 @@ export class ContactComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     this.formsubmitted = false;
   }
 heading = "Contact Us"

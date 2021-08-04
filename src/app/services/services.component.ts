@@ -10,6 +10,8 @@ export class ServicesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
   heading = "Our Services";
   quote = "People will forget what you said. They will forget what you did. But they will never forget how you made them feel.";

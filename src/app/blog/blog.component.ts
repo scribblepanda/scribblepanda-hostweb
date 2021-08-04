@@ -16,5 +16,8 @@ export class BlogComponent implements OnInit {
   }
   quote = "Blogging is a conversation, not a code.";
   heading = "Blog";
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 }
