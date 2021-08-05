@@ -63,4 +63,9 @@
 .post-content {
   background-color: rgb(255, 255, 255);
   z-index: 5;
+  img {
+    max-width: 100%;
+    border: blue 50px solid;
+    height: auto;
+  }
 }
