@@ -90,6 +90,11 @@ body::-webkit-scrollbar-thumb {
   border-radius: 50%;
   background: inherit;
   opacity: 0.1;
+  transform: scale(1);
+  transition: transform 700ms ease;
+}
+.card-min-height:hover .icon-bg-circle::after {
+  transform: scale(5);
 }
 
 p,
@@ -166,7 +171,9 @@ p,
 }
 
 .card-min-height {
+  height: 100%;
   min-height: 400px;
+  overflow: hidden;
 }
 .animate-float-bob-y {
   -webkit-animation-name: float-bob-y;
