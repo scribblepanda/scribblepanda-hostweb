@@ -1,12 +1,23 @@
 <app-page-header [heading]="heading" [quote]="quote"></app-page-header>
-<section class="contact_area sec_pad">
+<section class="contact_area sec_pad" #contactinfo>
   <div class="container">
     <div class="contact_info">
       <div class="pb-5" [ngClass]="{ hidefield: formsubmitted }">
         <h2 class="h_title wow fadeInUp">Let’s start the conversation</h2>
         <p>Please email us, we’ll happy to assist you.</p>
       </div>
-      <div class="pb-5" [ngClass]="{ hidefield: !formsubmitted }">
+      <div
+        class="pb-5"
+        [ngClass]="formsubmitted ? 'successField' : 'hidefield'"
+      >
+        <div class="success-checkmark">
+          <div class="check-icon">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+            <div class="icon-fix"></div>
+          </div>
+        </div>
         <h2 class="h_title wow fadeInUp">Thank you for the enquiry</h2>
         <p>We will contact you shortly.</p>
         <button
@@ -34,10 +45,10 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 id="sradio1"
-                value="Web Design"
-                name="service"
+                value="Yes"
+                name="webDesign"
                 ngModel
               />
               <label class="form-check-label" for="sradio1">Web Design</label>
@@ -45,10 +56,10 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 id="sradio2"
-                value="Web Development"
-                name="service"
+                value="Yes"
+                name="webDevelopment"
                 ngModel
               />
               <label class="form-check-label" for="sradio2">
@@ -58,10 +69,10 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 id="sradio3"
-                value="Mobile App"
-                name="service"
+                value="Yes"
+                name="mobileApp"
                 ngModel
               />
               <label class="form-check-label" for="sradio3"> Mobile App </label>
@@ -69,10 +80,10 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 id="sradio4"
-                value="UX Solutions"
-                name="service"
+                value="Yes"
+                name="uxSolutions"
                 ngModel
               />
               <label class="form-check-label" for="sradio4">
@@ -82,10 +93,10 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 id="sradio5"
-                value="Digital Marketing"
-                name="service"
+                value="Yes"
+                name="digitalMarketing"
                 ngModel
               />
               <label class="form-check-label" for="sradio5">
@@ -95,10 +106,10 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 id="sradio6"
-                value="Others"
-                name="service"
+                value="Yes"
+                name="Others"
                 ngModel
               />
               <label class="form-check-label" for="sradio6"> Others </label>
@@ -301,7 +312,7 @@
                 value="Send"
                 class="btn btn-primary display-7"
               >
-                SEND
+                {{ sendButton }}
               </button>
             </div>
           </div>
@@ -322,7 +333,6 @@
           height="100%"
           preserveAspectRatio="none"
           viewBox="0 0 600 355"
-          style=""
         >
           <path
             fill="red"
