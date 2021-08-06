@@ -153,6 +153,43 @@
         </div>
       </form>
     </div>
+    <section class="pt-100 pb-100">
+      <button (click)="fetchblog()">Show My Blogs</button>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 my-3" *ngFor="let item of item$ | async">
+            <div class="post shadow-sm">
+              <div class="post-img">
+                <img
+                  class="img-responsive img-fluid"
+                  [src]="item.cover"
+                  alt=""
+                />
+              </div>
+              <div class="post-info">
+                <h3>
+                  <a [routerLink]="'/blog-details/' + item.eventId">
+                    {{ item.title }}</a
+                  >
+                </h3>
+                <h6>{{ item.date }}</h6>
+                <p>
+                  {{ item.summary }}
+                </p>
+                <a
+                  class="readmore dark-color"
+                  [routerLink]="'/blog-details/' + item.eventId"
+                  ><span>Read More</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <!--=== Post End ===-->
+
+          <!--=== Post End ===-->
+        </div>
+      </div>
+    </section>
   </div>
 
   <ng-template #showLogin>
@@ -175,6 +212,6 @@
           </button>
         </div>
       </div>
-    </div></ng-template
-  >
+    </div>
+  </ng-template>
 </div>

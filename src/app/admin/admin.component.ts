@@ -18,6 +18,7 @@ export class AdminComponent implements OnInit {
   uploadPercent: Observable<number>;
   downloadURL: Observable<string>;
   success = false;
+  userDetails: any;
   post = {
     content: "",
     author: "Scribble Panda",
@@ -45,21 +46,11 @@ export class AdminComponent implements OnInit {
       .pipe(finalize(() => (this.downloadURL = fileRef.getDownloadURL())))
       .subscribe();
   }
-  authorDetails() {
-    const user = firebase.auth().currentUser;
-
-    if (user !== null) {
-      user.providerData.forEach((current) => {
-        console.log("Sign-in provider: " + current.providerId);
-        console.log("  Provider-specific UID: " + current.uid);
-        console.log("  Name: " + current.displayName);
-        console.log("  Email: " + current.email);
-        console.log("  Photo URL: " + current.photoURL);
-        this.post.author = current.displayName;
-        this.post.authorPhoto = current.photoURL;
-        console.log(this.post);
-      });
-    }
+  item$: Observable<any[]>;
+  fetchblog() {
+    this.item$ = this.firestore
+      .collection("post", (ref) => ref.where("author", "==", this.post.author))
+      .valueChanges({ idField: "eventId" });
   }
   login() {
     this.auth
@@ -83,5 +74,15 @@ export class AdminComponent implements OnInit {
         window.scrollTo(0, 0);
       });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userDetails = this.auth.authState.subscribe((res) => {
+      if (res) {
+        if (res.displayName != "Scribble Panda") {
+          console.log(res);
+          this.post.author = res.displayName;
+          if (res.photoURL) this.post.authorPhoto = res.photoURL;
+        }
+      }
+    });
+  }
 }
