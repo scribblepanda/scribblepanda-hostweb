@@ -20,7 +20,13 @@
       </button>
     </div>
     <img [src]="user.PhotoUrl" alt="" />
-    <button class="btn btn-info" (click)="logout()">Logout</button>
+    <button
+      class="btn btn-sm btn-dark"
+      style="position: absolute; top: 100px; right: 0"
+      (click)="logout()"
+    >
+      Logout &nbsp;<i class="ri-logout-circle-r-line"></i>
+    </button>
     <div class="container">
       <form #blogPost class="form-row" (ngSubmit)="postBlog(blogPost.value)">
         <div class="col-lg-12 col-md-12 col-sm-12 form-group">
@@ -55,6 +61,7 @@
             (ngModelChange)="authorDetails($event)"
             class="form-control display-7"
             id="author"
+            disabled
             required
           />
         </div>
@@ -153,22 +160,90 @@
         </div>
       </form>
     </div>
+    <hr />
     <section class="pt-100 pb-100">
-      <button (click)="fetchblog()">Show My Blogs</button>
-      <div class="container">
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-block btn-light" (click)="fetchblog()">
+          Show My Blogs &nbsp; <i class="ri-arrow-down-line"></i>
+        </button>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container my-5">
         <div class="row">
-          <div class="col-md-4 my-3" *ngFor="let item of item$ | async">
-            <div class="post shadow-sm">
+          <div
+            class="col-md-4 my-3 blog-card"
+            *ngFor="let item of item$ | async"
+          >
+            <div class="multi-button">
+              <button
+                (click)="edit(item.eventId)"
+                class="ri-pencil-fill"
+              ></button>
+              <button
+                (click)="delete(item.eventId)"
+                class="ri-delete-bin-7-fill"
+              ></button>
+            </div>
+            <div class="post shadow">
               <div class="post-img">
                 <img
                   class="img-responsive img-fluid"
                   [src]="item.cover"
-                  alt=""
+                  [alt]="item.title"
                 />
               </div>
               <div class="post-info">
                 <h3>
-                  <a [routerLink]="'/blog-details/' + item.eventId">
+                  <a
+                    target="_blank"
+                    [routerLink]="'/blog-details/' + item.eventId"
+                  >
                     {{ item.title }}</a
                   >
                 </h3>
@@ -177,6 +252,7 @@
                   {{ item.summary }}
                 </p>
                 <a
+                  target="_blank"
                   class="readmore dark-color"
                   [routerLink]="'/blog-details/' + item.eventId"
                   ><span>Read More</span></a

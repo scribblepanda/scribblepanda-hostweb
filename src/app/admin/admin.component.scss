@@ -53,3 +53,110 @@
 .file input:focus ~ .file-custom {
   box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.2rem #0074d9;
 }
+
+//post
+
+.post {
+  margin: 20px 0;
+  height: 100%;
+}
+
+.post-info {
+  padding: 25px 15px;
+  background: #fcfcfc;
+  transition: all 0.2s ease;
+}
+.post .post-img {
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  max-height: 300px;
+}
+.post .post-img img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  min-height: 250px;
+}
+
+.post-info h3 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+.post-info h6 {
+  // color: #49a432;
+  font-size: 12px;
+  padding-top: 10px;
+  color: #95918b;
+}
+
+.post-info a:hover {
+  color: #367725;
+}
+
+.post-info p {
+  margin-top: 20px;
+  //   color: #fff;
+}
+
+.blog-card {
+  position: relative;
+  --background: rgb(170, 43, 43);
+  --text: rgb(255, 255, 255);
+  .multi-button {
+    z-index: 10;
+    position: absolute;
+    top: 2.7rem;
+    left: 2.7rem;
+    border-radius: 100%;
+    width: 0rem;
+    height: 0rem;
+    transform: translate(-50%, -50%);
+    transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+    button {
+      display: grid;
+      place-items: center;
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      border: none;
+      border-radius: 100%;
+      background: var(--background);
+      color: var(--text);
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+      box-shadow: 0 0 0rem -0.25rem var(--background);
+      &:hover {
+        background: var(--text);
+        color: var(--background);
+        box-shadow: 0 0 1rem -0.25rem var(--background);
+      }
+
+      &:first-child:nth-last-child(2),
+      &:first-child:nth-last-child(2) ~ * {
+        //If there are 2 children
+        &:nth-child(1) {
+          left: 37.5%;
+          top: 18.75%;
+          background: rgb(216, 203, 23);
+          &:hover {
+            box-shadow: 0 0 1rem -0.25rem rgb(216, 203, 23);
+            background: var(--text);
+            color: rgb(216, 203, 23);
+          }
+        }
+        &:nth-child(2) {
+          left: 18.75%;
+          top: 37.5%;
+        }
+      }
+    }
+  }
+  &:hover .multi-button,
+  .multi-button:focus-within {
+    //Hover or a button inside is focused
+    width: 10rem;
+    height: 10rem;
+  }
+}

@@ -19,12 +19,19 @@ export class AdminComponent implements OnInit {
   downloadURL: Observable<string>;
   success = false;
   userDetails: any;
-  post = {
-    content: "",
+  setpost() {
+    this.post = {
+      title: "",
+      summary: "",
+      cover: "",
+      content: "",
+      date: new Date().toDateString(),
+      timestamp: Date.now(),
+    };
+  }
+  post: any = {
     author: "Scribble Panda",
-    date: new Date().toDateString(),
     authorPhoto: "../../assets/images/panda-user.jpg",
-    timestamp: Date.now(),
   };
   //profile: any;
 
@@ -32,7 +39,9 @@ export class AdminComponent implements OnInit {
     public auth: AngularFireAuth,
     private storage: AngularFireStorage,
     private firestore: AngularFirestore
-  ) {}
+  ) {
+    this.setpost();
+  }
   uploadFile(event) {
     const file = event.target.files[0];
     const filePath = Date.now().toString();
@@ -63,12 +72,26 @@ export class AdminComponent implements OnInit {
   logout() {
     this.auth.signOut();
   }
+  edit(item) {
+    this.firestore
+      .collection("post")
+      .doc(item)
+      .valueChanges()
+      .subscribe((data: any) => {
+        this.post = data;
+        console.log(this.post);
+      });
+  }
+  delete(item) {
+    this.firestore.collection("post").doc(item).delete();
+  }
   quote = "You are the hero! make some awesome content";
 
   postBlog() {
     this.firestore
       .collection("post")
-      .add(this.post)
+      .doc(undefined)
+      .set(this.post)
       .then((res) => {
         this.success = true;
         window.scrollTo(0, 0);
