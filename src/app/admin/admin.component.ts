@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from "firebase/app";
 import("firebase/auth");
@@ -6,6 +6,7 @@ import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize, retry } from "rxjs/operators";
 import { Observable } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
+declare var $: any;
 
 @Component({
   selector: "app-admin",
@@ -19,6 +20,8 @@ export class AdminComponent implements OnInit {
   downloadURL: Observable<string>;
   success = false;
   userDetails: any;
+  element = "yo";
+ deleteid="";
   setpost() {
     this.post = {
       title: "",
@@ -60,6 +63,9 @@ export class AdminComponent implements OnInit {
     this.item$ = this.firestore
       .collection("post", (ref) => ref.where("author", "==", this.post.author))
       .valueChanges({ idField: "eventId" });
+    const posts = document.getElementById("posts") as HTMLCanvasElement;
+
+    this.scroller(posts);
   }
   login() {
     this.auth
@@ -71,6 +77,10 @@ export class AdminComponent implements OnInit {
   }
   logout() {
     this.auth.signOut();
+  }
+  showModal(item) {
+    $("#exampleModal").modal("show");
+    this.deleteid=item;
   }
   edit(item) {
     this.firestore
@@ -96,6 +106,12 @@ export class AdminComponent implements OnInit {
         this.success = true;
         window.scrollTo(0, 0);
       });
+  }
+  scroller(el: HTMLElement) {
+    el.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   }
   ngOnInit(): void {
     this.userDetails = this.auth.authState.subscribe((res) => {
