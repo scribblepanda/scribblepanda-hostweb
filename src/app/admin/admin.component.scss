@@ -71,7 +71,8 @@
   position: relative;
   z-index: 10;
   max-height: 300px;
-  background: url(../../assets/images/template.png) center;
+  background: url(../../assets/images/template.png) center no-repeat;
+  background-size: cover;
 }
 .post .post-img img {
   -webkit-backface-visibility: hidden;
