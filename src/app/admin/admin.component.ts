@@ -25,6 +25,7 @@ export class AdminComponent implements OnInit {
   isLoading: boolean = false;
   nodata: boolean = false;
   editId: any;
+  snackbar = false;
   setpost() {
     this.post = {
       title: "",
@@ -75,6 +76,7 @@ export class AdminComponent implements OnInit {
     const el = document.getElementById("posts") as HTMLCanvasElement;
 
     this.scroller(el);
+    this.snackbar = false;
   }
   login() {
     this.auth
@@ -106,6 +108,10 @@ export class AdminComponent implements OnInit {
   }
   delete(item) {
     this.firestore.collection("post").doc(item).delete();
+    this.snackbar = true;
+    setTimeout(() => {
+      this.snackbar = false;
+    }, 3000);
   }
   quote = "You are the hero! make some awesome content";
 
