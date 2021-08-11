@@ -2,6 +2,9 @@
 
 <section class="pt-100 pb-100">
   <div class="container">
+    <div *ngIf="isLoading" class="preloader d-flex justify-content-center">
+      <img src="../../assets/images/pandaForwardRoll.gif" alt="Loading..." />
+    </div>
     <div class="row">
       <div class="col-md-4 my-3" *ngFor="let item of item$ | async">
         <div class="post shadow-sm">

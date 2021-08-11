@@ -21,7 +21,10 @@ export class AdminComponent implements OnInit {
   success = false;
   userDetails: any;
   element = "yo";
- deleteid="";
+  deleteid = "";
+  isLoading: boolean = false;
+  nodata: boolean = false;
+  editId: any;
   setpost() {
     this.post = {
       title: "",
@@ -60,12 +63,18 @@ export class AdminComponent implements OnInit {
   }
   item$: Observable<any[]>;
   fetchblog() {
+    this.isLoading = true;
     this.item$ = this.firestore
       .collection("post", (ref) => ref.where("author", "==", this.post.author))
       .valueChanges({ idField: "eventId" });
-    const posts = document.getElementById("posts") as HTMLCanvasElement;
+    this.item$.subscribe((data) => {
+      this.isLoading = false;
+      console.log(data);
+      if (data.length == 0) this.nodata = true;
+    });
+    const el = document.getElementById("posts") as HTMLCanvasElement;
 
-    this.scroller(posts);
+    this.scroller(el);
   }
   login() {
     this.auth
@@ -80,7 +89,7 @@ export class AdminComponent implements OnInit {
   }
   showModal(item) {
     $("#exampleModal").modal("show");
-    this.deleteid=item;
+    this.deleteid = item;
   }
   edit(item) {
     this.firestore
@@ -89,8 +98,11 @@ export class AdminComponent implements OnInit {
       .valueChanges()
       .subscribe((data: any) => {
         this.post = data;
+        this.editId = item;
         console.log(this.post);
       });
+    const el = document.getElementById("postform") as HTMLCanvasElement;
+    this.scroller(el);
   }
   delete(item) {
     this.firestore.collection("post").doc(item).delete();
@@ -100,10 +112,11 @@ export class AdminComponent implements OnInit {
   postBlog() {
     this.firestore
       .collection("post")
-      .doc(undefined)
+      .doc(this.editId)
       .set(this.post)
       .then((res) => {
         this.success = true;
+        this.editId = undefined;
         window.scrollTo(0, 0);
       });
   }
@@ -116,9 +129,10 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.userDetails = this.auth.authState.subscribe((res) => {
       if (res) {
-        if (res.displayName != "Scribble Panda") {
+        if (res.email != "scribblepanda.in@gmail.com") {
           console.log(res);
           this.post.author = res.displayName;
+          this.post.email = res.email;
           if (res.photoURL) this.post.authorPhoto = res.photoURL;
         }
       }
