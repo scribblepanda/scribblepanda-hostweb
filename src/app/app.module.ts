@@ -32,7 +32,7 @@ import { EditorModule } from "@tinymce/tinymce-angular";
     AdminComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
@@ -40,32 +40,34 @@ import { EditorModule } from "@tinymce/tinymce-angular";
     HttpClientModule,
     EditorModule,
     RouterModule.forRoot([
-      { path: "", component: HomeComponent },
-      {
+    { path: "", component: HomeComponent },
+    {
         path: "clients",
         component: ClientsComponent,
-      },
-      {
+    },
+    {
         path: "services",
         component: ServicesComponent,
-      },
-      {
+    },
+    {
         path: "about",
         component: AboutusComponent,
-      },
-      { path: "blog", component: BlogComponent },
-      {
+    },
+    { path: "blog", component: BlogComponent },
+    {
         path: "blog-details/:id",
         component: BlogDetailsComponent,
-      },
-      {
+    },
+    {
         path: "contact",
         component: ContactComponent,
-      },
-      { path: "thisisit/admin", component: AdminComponent },
-      { path: "", redirectTo: "", pathMatch: "full" },
-      { path: "**", component: HomeComponent },
-    ]),
+    },
+    { path: "thisisit/admin", component: AdminComponent },
+    { path: "", redirectTo: "", pathMatch: "full" },
+    { path: "**", component: HomeComponent },
+], {
+    initialNavigation: 'enabled'
+}),
   ],
   providers: [],
   bootstrap: [AppComponent],
