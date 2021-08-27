@@ -115,7 +115,7 @@ export class AdminComponent implements OnInit {
   }
   quote = "You are the hero! make some awesome content";
 
-  postBlog() {
+  postBlog(id) {
     this.firestore
       .collection("post")
       .doc(this.editId)
