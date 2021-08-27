@@ -13,7 +13,7 @@
     },
     {
       "target": "scribble",
-      "public": "dist",
+      "public": "dist/browser",
       "ignore": ["**/.*"],
       "headers": [
         {
