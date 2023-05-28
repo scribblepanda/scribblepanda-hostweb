@@ -178,5 +178,8 @@
       }
     }
   },
-  "defaultProject": "scribble"
+  "defaultProject": "scribble",
+  "cli": {
+    "analytics": "fc5e680b-44e6-411b-a11b-7371c5684f65"
+  }
 }
