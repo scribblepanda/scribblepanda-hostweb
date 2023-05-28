@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run scribble:serve-ssr",
     "serve:ssr": "node dist/scribble/server/main.js",
-    "build:ssr": "ng build --prod && ng run scribble:server:production",
+    "build:ssr": "export NODE_OPTIONS=--openssl-legacy-provider; ng build --prod && ng run scribble:server:production",
     "prerender": "ng run scribble:prerender"
   },
   "private": true,
