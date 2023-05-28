@@ -23,7 +23,8 @@ export function app(): express.Express {
       bootstrap: AppServerModule,
     })
   );
-
+  const history = require("connect-history-api-fallback");
+  server.use(history());
   server.set("view engine", "html");
   server.set("views", distFolder);
 
