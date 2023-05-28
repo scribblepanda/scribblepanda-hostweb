@@ -1,12 +1,11 @@
 import "zone.js/dist/zone-node";
-
 import { ngExpressEngine } from "@nguniversal/express-engine";
 import * as express from "express";
 import { join } from "path";
-
-import { AppServerModule } from "./src/main.server";
 import { APP_BASE_HREF } from "@angular/common";
 import { existsSync } from "fs";
+
+import { AppServerModule } from "./src/main.server";
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -23,13 +22,10 @@ export function app(): express.Express {
       bootstrap: AppServerModule,
     })
   );
-  const history = require("connect-history-api-fallback");
-  server.use(history());
+
   server.set("view engine", "html");
   server.set("views", distFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get(
     "*.*",
@@ -54,6 +50,12 @@ function run(): void {
 
   // Start up the Node server
   const server = app();
+
+  // Set up a catch-all route to serve the index.html file
+  server.get("*", (req, res) => {
+    res.sendFile(join(process.cwd(), "dist/scribble/browser/index.html"));
+  });
+
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
